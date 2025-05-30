@@ -1,3 +1,6 @@
+//tj wangchuk
+//05/20/25
+//company lab
 #ifndef DISCOUNTS_H
 #define DISCOUNTS_H
 
