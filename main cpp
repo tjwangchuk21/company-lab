@@ -1,3 +1,7 @@
+// tj wangchuk
+// 05/20/25
+// company lab
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -7,11 +11,9 @@
 using namespace std;
 
 int main() {
-    //prints
-    string name, address, couponCode, product = "TJ Turbo Driver";
+    string name, address, couponCode, favoriteGolfer, product = "TJ Turbo Driver";
     double originalPrice = 299.99;
 
-    // gets the users input
     cout << "Enter your name: ";
     getline(cin, name);
 
@@ -21,20 +23,27 @@ int main() {
     cout << "Enter your coupon code: ";
     getline(cin, couponCode);
 
-    // says hello
+    // Extra
+    cout << "Who won the Masters? (Rory, Tiger, Adam): ";
+    getline(cin, favoriteGolfer);
+
     cout << "\n" << greetCustomer(name) << "\n";
 
-    // gets the adress
     formatAddress(address);
     cout << "Address: " << address << "\n";
 
-    // Calculate and display prices
     double finalPrice = applyDiscount(couponCode, originalPrice);
+
+    // Apply extra $50 off 
+    if (favoriteGolfer == "Rory") {
+        finalPrice -= 50;
+        cout << "Correct! You get an extra $50 off!\n";
+    }
+
     cout << fixed << setprecision(2);
     cout << "Original Price: $" << originalPrice << "\n";
-    cout << "Discounted Price: $" << finalPrice << "\n";
+    cout << "Final Price: $" << finalPrice << "\n";
 
-    
     cout << closingMessage(product) << "\n";
 
     return 0;
