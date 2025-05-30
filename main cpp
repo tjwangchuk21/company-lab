@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include "communications.h"
+#include "discounts.h"
+
+using namespace std;
+
+int main() {
+    //prints
+    string name, address, couponCode, product = "TJ Turbo Driver";
+    double originalPrice = 299.99;
+
+    // gets the users input
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Enter your street address: ";
+    getline(cin, address);
+
+    cout << "Enter your coupon code: ";
+    getline(cin, couponCode);
+
+    // says hello
+    cout << "\n" << greetCustomer(name) << "\n";
+
+    // gets the adress
+    formatAddress(address);
+    cout << "Address: " << address << "\n";
+
+    // Calculate and display prices
+    double finalPrice = applyDiscount(couponCode, originalPrice);
+    cout << fixed << setprecision(2);
+    cout << "Original Price: $" << originalPrice << "\n";
+    cout << "Discounted Price: $" << finalPrice << "\n";
+
+    
+    cout << closingMessage(product) << "\n";
+
+    return 0;
+}
